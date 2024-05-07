@@ -1,4 +1,4 @@
-package user.controller;
+package epicworthcar.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import user.model.UserDao;
-import user.model.UserResponseDto;
 
 /**
  * Servlet implementation class LoginFormAction

@@ -1,4 +1,4 @@
-package user.controller;
+package epicworthcar.user.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import user.model.UserDao;
-import user.model.UserResponseDto;
 
 /**
  * Servlet implementation class FindUserAction

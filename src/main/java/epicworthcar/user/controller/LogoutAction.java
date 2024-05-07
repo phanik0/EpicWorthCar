@@ -1,4 +1,4 @@
-package user.controller;
+package epicworthcar.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
