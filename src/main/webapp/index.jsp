@@ -1,8 +1,9 @@
-<%@page import="epicworthcar.user.model.Cars"%>
-<%@page import="epicworthcar.user.model.CarsResponseDto"%>
+
+<%@page import="epicworthcar.user.model.cars.CarsDao"%>
+<%@page import="epicworthcar.user.model.cars.CarsResponseDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="epicworthcar.user.model.CarsDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,6 +20,7 @@
 
 	for(int i = 0 ; i<list.size(); i++){
 		out.print(list.get(i));
+		System.out.println();
 	}
 	%>
 </body>

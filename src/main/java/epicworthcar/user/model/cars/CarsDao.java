@@ -1,4 +1,4 @@
-package epicworthcar.user.model;
+package epicworthcar.user.model.cars;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
