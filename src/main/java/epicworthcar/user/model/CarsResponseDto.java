@@ -13,8 +13,8 @@ public class CarsResponseDto {
 	
 	
 	
-	public CarsResponseDto(String license_number, String name, String brand_code, String model, String color,
-			String engine, String rental_fee, String booked_dates, String type) {
+	public CarsResponseDto(String license_number, String name, String brand_code, String model, String type, String color,
+			String engine, String rental_fee, String booked_dates) {
 		super();
 		this.license_number = license_number;
 		this.name = name;
@@ -54,5 +54,9 @@ public class CarsResponseDto {
 		return type;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return String.format("%s/%s/%s", this.license_number, this.name, this.model);
+	}
 }

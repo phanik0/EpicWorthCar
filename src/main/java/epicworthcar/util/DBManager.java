@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class DBManager {
@@ -15,7 +14,7 @@ public class DBManager {
 		Connection conn = null;
 		try {
 			Context init = new InitialContext();
-			DataSource source = (DataSource)init.lookup("java:comp/env/jdbc/MyRentCarDB");
+			DataSource source = (DataSource)init.lookup("java:comp/env/jdbc/MyRentcarDB");
 			
 			conn = source.getConnection();
 			System.out.println("[DB연동성공]");
