@@ -14,7 +14,7 @@
 	
 	<section id="root">
 		<h2>회원 탈퇴</h2>
-		<form method="POST" action="/deleteUser">
+		<form method="POST" action="/deleteUserAction">
 			<div>
 				<input type="text" id="id" name="id" value="${user.id }" disabled >
 				<input type="password" id="password" name="password" placeholder="비밀번호">

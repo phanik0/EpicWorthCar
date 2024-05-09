@@ -1,4 +1,4 @@
-package epicworthcar.user.controller;
+package epicworthcar.user.controller.usermanagement;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -15,7 +15,7 @@
 	
 	<section id="root">
 		<h2>로그인</h2>
-		<form method="POST" action="/loginForm">
+		<form method="POST" action="/loginFormAction">
 			<div>
 				<input type="text" id="id" name="id" placeholder="아이디">
 				<input type="password" id="password" name="password" placeholder="비밀번호">

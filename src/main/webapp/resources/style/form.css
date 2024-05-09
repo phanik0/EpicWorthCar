@@ -1,1 +1,59 @@
-@charset "UTF-8";
+form > div, 
+form > input:last-child
+{
+	margin-top: 20px;
+}
+
+form > div > input, 
+form > div > select,
+form > div > div
+{
+	border: solid 1px lightgrey;
+	border-bottom: none;
+}
+
+form > div > input:focus,
+form > div > select:focus,
+form > div > input:last-child:focus
+{
+	border: solid 1px #5356FF;
+}
+
+form > div > input:focus + input, 
+form > div > input:focus + select
+{
+	border-top: none;
+}
+.error-container {
+	margin: 10px 0 0 0;
+	color: tomato;
+	width: 100%;
+	font-size: 0.8em;
+	line-height: 1.5em;
+	text-align: left;
+}
+#agree-container
+{
+	width: 400px;
+	padding: 12px;
+}
+
+#agree-container
+{
+	border-radius: 10px;
+	border: solid 1px lightgrey;
+}
+
+
+.error-container > p {
+	display: none;
+}
+#agree-label > p {
+	font-size: 0.8em;
+	margin: 6px 0;
+}
+
+#agree-label > p > b {
+	color: #5356FF;
+	font-weight: bold;
+}

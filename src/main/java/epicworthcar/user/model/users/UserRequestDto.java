@@ -1,5 +1,5 @@
 package epicworthcar.user.model.users;
-
+import java.lang.Boolean;
 import java.sql.Timestamp;
 
 public class UserRequestDto {
@@ -25,6 +25,17 @@ public class UserRequestDto {
 		this.resident_number = resident_number;
 		this.phone = phone;
 		this.admin = admin;
+		this.email = email;
+	}
+	public UserRequestDto(String id, String password, String name, String resident_number, String phone, String admin,
+			String email) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.resident_number = resident_number;
+		this.phone = phone;
+		this.admin = Boolean.parseBoolean(admin);
 		this.email = email;
 	}
 	

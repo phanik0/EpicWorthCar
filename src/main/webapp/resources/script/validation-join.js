@@ -113,8 +113,7 @@ $(document).ready(() => {
 		const birth = $('#birth').val();
 		const first = $('#first').val();
 		const last = $('#last').val();
-		console.log("telecom : ", telecom);
-
+	
 
 		const phone = $('#phone').val();
 
@@ -153,20 +152,8 @@ $(document).ready(() => {
 			$('#error-msg-telecom').show();
 			$('#telecom').css('border', 'solid 1px tomato');
 		}
-		if (gender === "") {
-			isValid = false;
-			$('#error-msg-gender').show();
-			$('#radio-container').css('border', 'solid 1px tomato');
-			$('#gender-man-label').css('border', 'solid 1px tomato');
-			$('#gender-woman-label').css('border', 'solid 1px tomato');
-		}
-		if (country === "") {
-			isValid = false;
-			$('#error-msg-country').show();
-			$('#radio-container').css('border', 'solid 1px tomato');
-			$('#country-local-label').css('border', 'solid 1px tomato');
-			$('#country-foreigner-label').css('border', 'solid 1px tomato');
-		}
+		
+		
 		if (phone === "") {
 			isValid = false;
 			$('#error-msg-phone').show();

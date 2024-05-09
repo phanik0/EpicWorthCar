@@ -12,34 +12,34 @@
   
   <servlet>
 		<servlet-name>deleteUserAction</servlet-name>
-		<servlet-class>user.controller.DeleteFormAction</servlet-class>
+		<servlet-class>epicworthcar.user.controller.usermanagement.DeleteFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>deleteUserAction</servlet-name>
-		<url-pattern>/deleteUser</url-pattern>
+		<url-pattern>/deleteUserAction</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>joinFormAction</servlet-name>
-		<servlet-class>user.controller.JoinFormAction</servlet-class>
+		<servlet-class>epicworthcar.user.controller.usermanagement.JoinFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>joinFormAction</servlet-name>
-		<url-pattern>/joinForm</url-pattern>
+		<url-pattern>/joinFormAction</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>loginFormAction</servlet-name>
-		<servlet-class>user.controller.LoginFormAction</servlet-class>
+		<servlet-class>epicworthcar.user.controller.usermanagement.LoginFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>loginFormAction</servlet-name>
-		<url-pattern>/loginForm</url-pattern>
+		<url-pattern>/loginFormAction</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>logoutAction</servlet-name>
-		<servlet-class>user.controller.LogoutAction</servlet-class>
+		<servlet-class>epicworthcar.user.controller.usermanagement.LogoutAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>logoutAction</servlet-name>
@@ -48,20 +48,20 @@
 
 	<servlet>
 		<servlet-name>updateUserFormAction</servlet-name>
-		<servlet-class>user.controller.UpdateUserFormAction</servlet-class>
+		<servlet-class>epicworthcar.user.controller.usermanagement.UpdateUserFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>updateUserFormAction</servlet-name>
-		<url-pattern>/updateForm</url-pattern>
+		<url-pattern>/updateFormAction</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>FindUserAction</servlet-name>
-		<servlet-class>boardServer.user.controller.FindUserAction</servlet-class>
+		<servlet-class>epicworthcar.user.controller.usermanagement.FindUserAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FindUserAction</servlet-name>
-		<url-pattern>/FindUser</url-pattern>
+		<url-pattern>/FindUserAction</url-pattern>
 	</servlet-mapping>
 	
 	

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+
 <html>
+<link rel="stylesheet" href="/resources/style/form.css">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <c:import url="/header"/>
+	<script src ="/resources/script/validation-join.js"></script>
 <body>
 	<section id="root">
 		<h2>회원가입</h2>
-		<form method="POST" action="/joinForm">
+		<form method="POST" action="/joinFormAction">
 			<div>
 				<input type="text" id="id" name="id" placeholder="아이디">
 				<input type="password" id="password" name="password" placeholder="비밀번호">
@@ -25,8 +25,8 @@
 			<div>
 				<input type="text" id="name" name="name" placeholder="이름">
 				<div id = "resident">
-				<input type="text" id="first" name="resident-number" placeholder="생년월일 8자리">-
-				<input type= "password" id="last" name="resident-number" placeholder="">
+				<input type="text" id="first" name="first" placeholder="생년월일 8자리">-
+				<input type= "password" id="last" name="last" placeholder="">
 				</div>
 <!-- 				<select id="telecom" name="telecom"> -->
 <!-- 					<option selected disabled>통신사 선택</option> -->
@@ -59,6 +59,5 @@
 		</form>
 		
 	</section>
-	<script src ="/resources/script/validation-join.js"></script>
 </body>
 </html>

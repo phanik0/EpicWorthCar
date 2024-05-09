@@ -90,8 +90,7 @@ public class UserDao {
 				String resident_number = rs.getString(3);
 				String phone = rs.getString(4);
 				boolean admin = rs.getBoolean(5);
-				String email = rs.getString(6);
-				;
+				String email = rs.getString(6);			;
 				String encyptedPassword = rs.getString(7);
 
 				if (PasswordCrypto.decrypt(password, encyptedPassword))
@@ -161,7 +160,7 @@ public class UserDao {
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "UPDATE users SET password=? , update_time = ? WHERE id=?";
+			String sql = "UPDATE users SET password=? , update_date = ? WHERE id=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, PasswordCrypto.encrypt(newPassword));
@@ -240,6 +239,7 @@ public class UserDao {
 			return false;
 
 		try {
+			conn = DBManager.getConnection();
 			String sql = "DELETE FROM users WHERE id=?";
 			pstmt = conn.prepareStatement(sql);
 
@@ -262,7 +262,7 @@ public class UserDao {
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "SELECT id , name, resident_number, phone, admin , email, regDate FROM users WHERE id=?";
+			String sql = "SELECT id , name, resident_number, phone, admin , email, reg_Date FROM users WHERE id=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -275,7 +275,7 @@ public class UserDao {
 				String phone = rs.getString(4);
 				boolean admin = rs.getBoolean(5);
 				String email = rs.getString(6);
-				Timestamp regDate = rs.getTimestamp(10);
+				Timestamp regDate = rs.getTimestamp(7);
 
 				user = new User(id, name, resident_number, phone, admin, email, regDate);
 			}

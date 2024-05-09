@@ -1,4 +1,4 @@
-package epicworthcar.user.controller;
+package epicworthcar.user.controller.usermanagement;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import epicworthcar.user.model.users.UserDao;
+import epicworthcar.user.model.users.UserRequestDto;
+import epicworthcar.user.model.users.UserResponseDto;
 
 
 /**
@@ -35,33 +39,33 @@ public class DeleteFormAction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		
-//		request.setCharacterEncoding("UTF-8");
-//
-//		UserDao userDao = UserDao.getInstance();
-//
-//		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
-//
-//		String id = user.getId();
-//		String password = request.getParameter("password");
-//
-//		// 패스워드가 일치하면 -> 삭제 처리 
-//		UserRequestDto userDto = new UserRequestDto();
-//
-//		userDto.setId(id);
-//		userDto.setPassword(password);
-//
-//		boolean result = userDao.deleteUser(userDto);
-//
-//		if(result) {
-//			System.out.println("탈퇴완료");
-//			session.removeAttribute("user");
-//			response.sendRedirect("/");
-//		} else {	
-//			response.sendRedirect("/deleteUserForm");
-//			System.out.println("탈퇴실패");
-//		}
+		HttpSession session = request.getSession();
+		
+		request.setCharacterEncoding("UTF-8");
+
+		UserDao userDao = UserDao.getInstance();
+
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
+		String id = user.getId();
+		String password = request.getParameter("password");
+
+		// 패스워드가 일치하면 -> 삭제 처리 
+		UserRequestDto userDto = new UserRequestDto();
+
+		userDto.setId(id);
+		userDto.setPassword(password);
+
+		boolean result = userDao.deleteUser(userDto);
+
+		if(result) {
+			System.out.println("탈퇴완료");
+			session.removeAttribute("user");
+			response.sendRedirect("/");
+		} else {	
+			response.sendRedirect("/deleteUserForm");
+			System.out.println("탈퇴실패");
+		}
 	}
 
 }
