@@ -9,11 +9,17 @@
 </head>
 <c:import url="/header"/>
 <body>
-<div class = "container">
-<ul>
-<li></li>
-</ul>
-
-</div>
+<div id="root">
+	<form method="POST" action="/reserveFormAction">
+		<div class="container">
+			<div class="content">
+				<div class="title_wrap"></div>
+				<div class="top_product"></div>
+			</div>
+			
+		</div>
+		<input type="submit" value="예약하기">
+		</form>
+	</div>
 </body>
 </html>

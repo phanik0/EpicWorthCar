@@ -50,4 +50,7 @@ public List<CarsResponseDto> findCarAll(){
 	}
 	return list;
 }
+public CarsResponseDto createReserve(CarsRequestDto carsDto) {
+		return null;
+}
 }
