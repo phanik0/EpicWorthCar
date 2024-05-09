@@ -42,5 +42,5 @@
 		</form>
 	</section>
 </body>
-<jsp:include page="/footer" />
+<c:import url= "/footer" />
 </html>
