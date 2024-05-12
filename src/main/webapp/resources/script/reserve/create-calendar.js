@@ -21,7 +21,9 @@ $(document).ready(function() {
 		}
 
 		for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
-			const dayElement = $('<div class="day" id="day">' + i + '</div>');
+			const dayElement = $('<div class="day" id="day"></div>');
+			const labelElement = $('<label name = "day">' + i + '</label>'); // <label> 요소 생성
+			dayElement.append(labelElement);
 			dayElement.on('click', function() {
 				console.log(startDate);
 				console.log(endDate);
@@ -29,6 +31,9 @@ $(document).ready(function() {
 					startDate = new Date(year, month, i);
 					dayElement.addClass('selected');
 					dayElement.attr('id', 'startDay');
+					labelElement.attr('name', 'startDay');
+					const formatStartDate = formatDate(startDate);
+					$('#startDayInput').val(formatStartDate);
 				} else if (!endDate) {
 					endDate = new Date(year, month, i);
 					if (startDate >= endDate) {
@@ -36,10 +41,12 @@ $(document).ready(function() {
 						endDate = null;
 						return;
 					}
-						dayElement.addClass('selected');
-						dayElement.attr('id', 'endDay');
-						console.log('Selected range:', startDate, '-', endDate);
-					
+					dayElement.addClass('selected');
+					dayElement.attr('id', 'endDay');
+					labelElement.attr('name', 'endDay');
+					const formatEndDate = formatDate(endDate);
+					$('#endDayInput').val(formatEndDate);
+					console.log('Selected range:', startDate, '-', endDate);
 
 					// 여기서 선택한 날짜로 무언가를 하실 수 있습니다.
 				} else {
@@ -47,17 +54,30 @@ $(document).ready(function() {
 					startDate = new Date(year, month, i);
 					endDate = null;
 					$('#startDay').attr('id', 'day');
-					$('#endDay').attr('id', 'day' );
+					$('#endDay').attr('id', 'day');
 					$('.day').removeClass('selected');
 					dayElement.addClass('selected');
 					dayElement.attr('id', 'startDay');
+					labelElement.attr('name', 'startDay');
+					const formatStartDate = formatDate(startDate);
+
+					$('#startDayInput').val(formatStartDate);
 
 				}
 			});
 			daysElement.append(dayElement);
 		}
 	}
+	function formatDate(date) {
+    const year = date.getFullYear();
+    const month = padZero(date.getMonth() + 1); // 월은 0부터 시작하므로 1을 더해줍니다.
+    const day = padZero(date.getDate());
+    return `${year}-${month}-${day}`;
+}
 
+function padZero(num) {
+    return num < 10 ? '0' + num : num; // 한 자리 수일 경우 앞에 0을 붙여 두 자리로 만듭니다.
+}
 	function getMonthName(month) {
 		const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		return months[month];
