@@ -61,6 +61,7 @@ public class LoginFormAction extends HttpServlet {
 			
 			if(user != null) {
 				session.setAttribute("user", user);
+				session.setAttribute("isLoggedIn", true);
 				response.sendRedirect("/mypage");				
 			} else {
 				response.sendRedirect("/login");				
