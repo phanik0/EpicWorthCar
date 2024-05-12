@@ -81,6 +81,14 @@
 		<servlet-name>ListFormAction</servlet-name>
 		<url-pattern>/listFormAction</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>FindPostAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.FindPostAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindPostAction</servlet-name>
+		<url-pattern>/findPostAction</url-pattern>
+	</servlet-mapping>
 	
 	
 	<!-- JSP files mapping -->

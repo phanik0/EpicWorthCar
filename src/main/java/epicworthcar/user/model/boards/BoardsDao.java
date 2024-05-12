@@ -52,4 +52,33 @@ public List<BoardsResponseDto> findBoardAll() {
 	}
 	return list;
 }
+public BoardsResponseDto findPostByNumber(String number) {
+	BoardsResponseDto post = null;
+
+	try {
+		conn = DBManager.getConnection();
+
+		String sql = "SELECT number, title , body,  id, write_date FROM board WHERE number=?";
+
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, number);
+
+		rs = pstmt.executeQuery();
+
+		if (rs.next()) {
+			String title = rs.getString(2);
+	
+			String body = rs.getString(3);
+			
+			String id = rs.getString(4);
+			Timestamp write_date = rs.getTimestamp(5);			
+			post = new BoardsResponseDto(title, body, number, id, write_date);
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		DBManager.close(conn, pstmt, rs);
+	}
+	return post;
+}
 }

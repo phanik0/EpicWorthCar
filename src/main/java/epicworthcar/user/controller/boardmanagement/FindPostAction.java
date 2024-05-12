@@ -1,7 +1,6 @@
 package epicworthcar.user.controller.boardmanagement;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,16 +15,16 @@ import epicworthcar.user.model.cars.CarsDao;
 import epicworthcar.user.model.cars.CarsResponseDto;
 
 /**
- * Servlet implementation class BoardListFormAction
+ * Servlet implementation class FindPostAction
  */
 
-public class BoardListFormAction extends HttpServlet {
+public class FindPostAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardListFormAction() {
+    public FindPostAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,11 +34,18 @@ public class BoardListFormAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		  List<BoardsResponseDto> boardList = BoardsDao.getInstance().findBoardAll();
-	        request.setAttribute("boardList", boardList);
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/board/boardListForm.jsp");
-	        dispatcher.forward(request, response);	
-	
+		String number = request.getParameter("number");
+	       System.out.println(number);
+	       System.out.println(123);
+	        
+	        
+	        BoardsResponseDto post = BoardsDao.getInstance().findPostByNumber(number); 
+	        
+	        
+	        request.setAttribute("post", post);
+	        
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/board/postForm.jsp");
+	        dispatcher.forward(request, response);
 	}
 
 	/**
@@ -47,8 +53,18 @@ public class BoardListFormAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-		
+		   String number = request.getParameter("number");
+	       System.out.println(number);
+	       System.out.println(123);
+	        
+	        
+	        BoardsResponseDto post = BoardsDao.getInstance().findPostByNumber(number); 
+	        
+	        
+	        request.setAttribute("post", post);
+	        
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/board/postForm.jsp");
+	        dispatcher.forward(request, response);
 	}
 
 }

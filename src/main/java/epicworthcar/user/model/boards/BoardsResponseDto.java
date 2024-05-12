@@ -19,6 +19,15 @@ public class BoardsResponseDto {
 		this.write_date = write_date;
 		this.update_date = update_date;
 	}
+	public BoardsResponseDto(String title, String body, String number, String id, Timestamp write_date) {
+		super();
+		this.title = title;
+		this.body = body;
+		this.number = number;
+		this.id = id;
+		this.write_date = write_date;
+		
+	}
 	public String getTitle() {
 		return title;
 	}
