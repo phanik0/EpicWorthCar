@@ -1,11 +1,9 @@
 package epicworthcar.user.model.cars;
 
 public class CarsResponseDto {
-	private String code;
 	private String license_number;
 	private String name;
 	private String brand_code;
-	private String brand;
 	private String model;
 	private String color;
 	private String engine;
@@ -15,10 +13,9 @@ public class CarsResponseDto {
 	
 	
 	
-	public CarsResponseDto(String code,String license_number, String name, String brand_code, String model, String type, String color,
+	public CarsResponseDto(String license_number, String name, String brand_code, String model, String type, String color,
 			String engine, String rental_fee, String booked_dates) {
 		super();
-		this.code = code;
 		this.license_number = license_number;
 		this.name = name;
 		this.brand_code = brand_code;
@@ -29,36 +26,6 @@ public class CarsResponseDto {
 		this.booked_dates = booked_dates;
 		this.type = type;
 	}
-	
-	public CarsResponseDto(String code,String license_number, String name, String brand_code, String brand, String model, String type, String color,
-			String engine, String rental_fee, String booked_dates) {
-		super();
-		this.code = code;
-		this.license_number = license_number;
-		this.name = name;
-		this.brand_code = brand_code;
-		this.brand = brand;
-		this.model = model;
-		this.color = color;
-		this.engine = engine;
-		this.rental_fee = rental_fee;
-		this.booked_dates = booked_dates;
-		this.type = type;
-	}
-	
-	
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
 	public String getLicense_number() {
 		return license_number;
 	}
@@ -67,9 +34,6 @@ public class CarsResponseDto {
 	}
 	public String getBrand_code() {
 		return brand_code;
-	}
-	public String getBrand() {
-		return brand;
 	}
 	public String getModel() {
 		return model;

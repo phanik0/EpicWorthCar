@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-	id="WebApp_ID" version="4.0">
-	<display-name>EpicWorthCar</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-	</welcome-file-list>
-
-	<servlet>
-		<servlet-name>mainFormAction</servlet-name>
-		<servlet-class>epicworthcar.user.controller.MainFormAction</servlet-class>
-		
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>mainFormAction</servlet-name>
-		<url-pattern>/mainFormAction</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>EpicWorthCar</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
 		<servlet-name>deleteUserAction</servlet-name>
 		<servlet-class>epicworthcar.user.controller.usermanagement.DeleteFormAction</servlet-class>
 	</servlet>
@@ -76,28 +63,19 @@
 		<servlet-name>FindUserAction</servlet-name>
 		<url-pattern>/FindUserAction</url-pattern>
 	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>findCarInfoAction</servlet-name>
-		<servlet-class>epicworthcar.user.controller.reservation.FindCarInfoAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>findCarInfoAction</servlet-name>
-		<url-pattern>/findCarInfoAction</url-pattern>
-	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>reserveFormAction</servlet-name>
-		<servlet-class>epicworthcar.user.controller.reservation.ReserveFormAction</servlet-class>
+		<servlet-name>ReserveFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.reserve.ReserveFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>reserveFormAction</servlet-name>
+		<servlet-name>ReserveFormAction</servlet-name>
 		<url-pattern>/reserveFormAction</url-pattern>
 	</servlet-mapping>
-
-
+	
+	
 	<!-- JSP files mapping -->
-
+	
 	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/module/header.jsp</jsp-file>
@@ -124,7 +102,7 @@
 		<servlet-name>joinForm</servlet-name>
 		<url-pattern>/join</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>myPage</servlet-name>
 		<jsp-file>/views/user/mypage.jsp</jsp-file>
@@ -133,7 +111,7 @@
 		<servlet-name>myPage</servlet-name>
 		<url-pattern>/mypage</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>login</servlet-name>
 		<jsp-file>/views/user/loginForm.jsp</jsp-file>
@@ -142,7 +120,7 @@
 		<servlet-name>login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>updateUserForm</servlet-name>
 		<jsp-file>/views/user/updateUserForm.jsp</jsp-file>
@@ -151,7 +129,7 @@
 		<servlet-name>updateUserForm</servlet-name>
 		<url-pattern>/updateUserForm</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>deleteUserForm</servlet-name>
 		<jsp-file>/views/user/deleteUserForm.jsp</jsp-file>
@@ -160,7 +138,7 @@
 		<servlet-name>deleteUserForm</servlet-name>
 		<url-pattern>/deleteUserForm</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>reserveForm</servlet-name>
 		<jsp-file>/views/reserve/reserveForm.jsp</jsp-file>
@@ -169,6 +147,6 @@
 		<servlet-name>reserveForm</servlet-name>
 		<url-pattern>/reserveForm</url-pattern>
 	</servlet-mapping>
-
-
+	
+	
 </web-app>

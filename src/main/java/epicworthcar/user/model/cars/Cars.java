@@ -1,8 +1,6 @@
 package epicworthcar.user.model.cars;
 
 public class Cars {
-	
-	private String code;
 	private String license_number;
 	private String name;
 	private String brand_code;
@@ -14,10 +12,9 @@ public class Cars {
 	private String type;
 	
 	
-	public Cars(String code, String license_number, String name, String brand_code, String model,  String type,String color, String engine,
+	public Cars(String license_number, String name, String brand_code, String model,  String type,String color, String engine,
 			String rental_fee, String booked_dates) {
 		super();
-		this.code = code;
 		this.license_number = license_number;
 		this.name = name;
 		this.brand_code = brand_code;
@@ -28,11 +25,6 @@ public class Cars {
 		this.booked_dates = booked_dates;
 		this.type = type;
 	}
-	
-	public String getCode() {
-		return code;
-	}
-
 	public String getLicense_number() {
 		return license_number;
 	}
