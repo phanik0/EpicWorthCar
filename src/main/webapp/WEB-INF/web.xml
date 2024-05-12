@@ -10,7 +10,6 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
-
   <servlet>
 		<servlet-name>deleteUserAction</servlet-name>
 		<servlet-class>epicworthcar.user.controller.usermanagement.DeleteFormAction</servlet-class>
@@ -66,12 +65,21 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>ReserveFormAction</servlet-name>
-		<servlet-class>epicworthcar.user.controller.reserve.ReserveFormAction</servlet-class>
+		<servlet-name>BoardListFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.BoardListFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ReserveFormAction</servlet-name>
-		<url-pattern>/reserveFormAction</url-pattern>
+		<servlet-name>BoardListFormAction</servlet-name>
+		<url-pattern>/boardListFormAction</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.ListFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListFormAction</servlet-name>
+		<url-pattern>/listFormAction</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -139,17 +147,4 @@
 		<servlet-name>deleteUserForm</servlet-name>
 		<url-pattern>/deleteUserForm</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>reserveForm</servlet-name>
-		<jsp-file>/views/reserve/reserveForm.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>reserveForm</servlet-name>
-		<url-pattern>/reserveForm</url-pattern>
-	</servlet-mapping>
-	
-	
-
-
 </web-app>
