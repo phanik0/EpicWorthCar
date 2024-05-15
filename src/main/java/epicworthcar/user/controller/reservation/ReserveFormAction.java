@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import epicworthcar.user.model.cars.CarsDao;
 import epicworthcar.user.model.cars.CarsRequestDto;
 import epicworthcar.user.model.cars.CarsResponseDto;
+import epicworthcar.user.model.users.UserResponseDto;
 
 /**
  * Servlet implementation class ReserveFormAction
@@ -46,7 +48,8 @@ public class ReserveFormAction extends HttpServlet {
 		   String startDay = request.getParameter("startDay");
 		   String endDay = request.getParameter("endDay");
 		   String carCode = request.getParameter("carCode");
-		   
+		   HttpSession session = request.getSession();
+		   UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 	        System.out.println(startDay);
 	        System.out.println(endDay);
 	        
@@ -55,7 +58,7 @@ public class ReserveFormAction extends HttpServlet {
 	        CarsResponseDto car = carsDao.findCarById(carCode);
 	        
 	        if(startDay != null && endDay != null) {
-	        	car = carsDao.createReserve(carCode,startDay, endDay);
+	        	car = carsDao.createReserve(carCode,user.getId(),startDay, endDay);
 	        }
 //	        
 //	        

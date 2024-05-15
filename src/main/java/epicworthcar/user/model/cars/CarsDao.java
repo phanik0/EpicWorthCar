@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,8 +64,19 @@ public class CarsDao {
 		}
 		return list;
 	}
+	public Timestamp convertStringToTimestamp(String str_date) {
+	    try {
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	        java.util.Date parsedDate = dateFormat.parse(str_date);
+	        Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
 
-	public CarsResponseDto createReserve(String carCode, String startDay, String endDay) {
+	        return timestamp;
+	    } catch(ParseException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+	public CarsResponseDto createReserve(String carCode, String user_id,String startDay, String endDay) {
 		try {
 			conn = DBManager.getConnection();
 
@@ -96,7 +109,17 @@ public class CarsDao {
 			pstmt.setString(1, updatedBookedDatesJson);
 			pstmt.setString(2, carCode);
 			pstmt.executeUpdate();
-
+			Timestamp startDate = convertStringToTimestamp(startDay);
+			Timestamp endDate = convertStringToTimestamp(endDay);
+			String sql = "INSERT INTO book_info(user_id, car_code, book_date, start_date, end_date) VALUES(?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, carCode);
+			pstmt.setTimestamp(3, startDate);
+			pstmt.setTimestamp(4, startDate);
+			pstmt.setTimestamp(5, endDate);
+			pstmt.executeUpdate();
+			
 			// 예약 정보를 포함한 차량 정보를 다시 가져옴
 			return findCarById(carCode);
 		} catch (SQLException | IOException e) {
@@ -105,6 +128,63 @@ public class CarsDao {
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
+	}
+	
+	// 예약 취소
+	public boolean cancelReserve(String carCode,String user_id ,String startDay, String endDay) {
+	    try {
+	        conn = DBManager.getConnection();
+
+	        // 현재 예약 정보를 가져옴
+	        String sqlSelect = "SELECT booked_dates FROM cars WHERE code=?";
+	        pstmt = conn.prepareStatement(sqlSelect);
+	        pstmt.setString(1, carCode);
+	        rs = pstmt.executeQuery();
+
+	        String bookedDatesJson = null;
+	        if (rs.next()) {
+	            bookedDatesJson = rs.getString("booked_dates");
+	        }
+
+	        // 예약 정보에서 취소할 날짜를 제거
+	        ObjectMapper objectMapper = new ObjectMapper();
+	        ObjectNode bookedDatesNode = (ObjectNode)objectMapper.readTree(bookedDatesJson != null ? bookedDatesJson : "{}");
+
+	        for (LocalDate date = LocalDate.parse(startDay); !date.isAfter(LocalDate.parse(endDay)); date = date.plusDays(1)) {
+	            bookedDatesNode.remove(date.toString());
+	        }
+
+	        // 업데이트된 JSON 데이터를 데이터베이스에 저장
+	        String updatedBookedDatesJson = objectMapper.writeValueAsString(bookedDatesNode);
+	        String sqlUpdate = "UPDATE cars SET booked_dates=? WHERE code=?";
+	        pstmt = conn.prepareStatement(sqlUpdate);
+	        pstmt.setString(1, updatedBookedDatesJson);
+	        pstmt.setString(2, carCode);
+	        pstmt.executeUpdate();
+	    	Timestamp startDate = convertStringToTimestamp(startDay);
+			Timestamp endDate = convertStringToTimestamp(endDay);
+	    	String sql = "DELETE FROM book_info WHERE start_date = ? AND end_date = ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setTimestamp(1, startDate);
+			pstmt.setTimestamp(2, endDate);
+		
+			pstmt.executeUpdate();
+			
+	    } catch (SQLException | IOException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBManager.close(conn, pstmt, rs);
+	    }
+	    return false;
+	}
+
+	// 예약 수정
+	public void modifyReserve(String carCode, String user_id,String oldStartDay, String oldEndDay, String newStartDay, String newEndDay) {
+	    // 먼저 예전 예약을 취소
+	    cancelReserve(carCode, user_id,oldStartDay, oldEndDay);
+
+	    // 그 다음 새로운 예약을 생성
+	    createReserve(carCode, user_id,newStartDay, newEndDay);
 	}
 
 	public CarsResponseDto findCarById(String code) {
