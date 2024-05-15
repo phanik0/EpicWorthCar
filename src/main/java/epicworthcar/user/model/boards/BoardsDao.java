@@ -126,12 +126,12 @@ public class BoardsDao {
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, boardsDto.getTitle());
-			pstmt.setString(3, boardsDto.getBody());
+			pstmt.setString(2, boardsDto.getBody());
 			pstmt.setString(3, boardsDto.getId());
 
 			pstmt.execute();
 
-			post = findPostByIdAndDate(boardsDto.getId(), new Timestamp(new Date().getTime()));
+			post = new BoardsResponseDto();
 			return post;
 		} catch (SQLException e) {
 			e.printStackTrace();

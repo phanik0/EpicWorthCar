@@ -1,0 +1,114 @@
+/* header.css */
+body {
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+}
+
+header {
+	background-color: #fff; /* 헤더 배경색 */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	position: fixed; /* 고정 위치 */
+	width: 100%; /* 전체 너비 */
+	top: 0; /* 상단에 위치 */
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	background: #fff;
+	z-index: 11;
+	position: sticky;
+	top: 0;
+}
+
+header h1 {
+	float: left; /* 왼쪽 정렬 */
+	margin-left: 20px; /* 왼쪽 여백 */
+}
+
+header h1 .brand {
+	text-decoration: none; /* 링크 밑줄 제거 */
+	color: #333; /* 링크 색상 */
+	font-size: 24px; /* 글자 크기 */
+}
+
+nav ul {
+	list-style: none; /* 목록 스타일 제거 */
+	margin: 0;
+	padding: 0;
+	float: left; /* 왼쪽 정렬 */
+}
+
+nav ul li {
+	float: left; /* 왼쪽 정렬 */
+}
+
+nav ul li a {
+	display: block; /* 블록 요소로 표시 */
+	padding: 20px 15px; /* 패딩 */
+	text-decoration: none; /* 링크 밑줄 제거 */
+	color: #333; /* 링크 색상 */
+	font-size: 16px; /* 글자 크기 */
+}
+
+nav ul li a:hover {
+	background-color: #f2f2f2; /* 호버 배경색 */
+}
+
+.userLoggedIn,.userLoggedOut {
+	display: flex;
+	height: 24px;
+	align-items: center;
+
+	background-size: 24px;
+	padding-left: 32px;
+	margin-left: 44px;
+}
+
+ul.userLoggedIn,
+ul.userLoggedOut {
+	float: right; /* 오른쪽 정렬 */
+	margin-right: 20px; /* 오른쪽 여백 */
+	text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+ul.userLoggedIn li,
+ul.userLoggedOut li {
+	float: left; /* 왼쪽 정렬 */
+}
+
+ul.userLoggedIn li a ,
+ul.userLoggedOut li a{
+	display: block; /* 블록 요소로 표시 */
+	padding: 20px 15px; /* 패딩 */
+	text-decoration: none; /* 링크 밑줄 제거 */
+	color: #333; /* 링크 색상 */
+	font-size: 16px; /* 글자 크기 */
+}
+
+ul.userLoggedIn li a:hover {
+	background-color: #f2f2f2; /* 호버 배경색 */
+}
+
+.loginBtn, .signupBtn {
+	display: none; /* 기본적으로 로그인과 회원가입 버튼은 숨김 처리 */
+}
+
+.logoutBtn, .myPageBtn {
+	display: none; /* 기본적으로 로그아웃과 마이페이지 버튼은 숨김 처리 */
+}
+
+.userLoggedIn .loginBtn, .userLoggedIn .signupBtn {
+	display: none; /* 로그인 상태에서는 로그인, 회원가입 버튼 숨김 */
+}
+
+.userLoggedIn .logoutBtn, .userLoggedIn .myPageBtn {
+	display: block; /* 로그인 상태에서는 로그아웃, 마이페이지 버튼 표시 */
+}
+
+.userLoggedOut .loginBtn, .userLoggedOut .signupBtn {
+	display: block; /* 로그인 상태에서는 로그인, 회원가입 버튼 숨김 */
+}
+
+.userLoggedOut .logoutBtn, .userLoggedOut .myPageBtn {
+	display: none; /* 로그인 상태에서는 로그아웃, 마이페이지 버튼 표시 */
+}

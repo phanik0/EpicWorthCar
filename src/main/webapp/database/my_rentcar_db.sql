@@ -4,17 +4,17 @@ USE my_rentcar_db;
 
 CREATE TABLE users (
     id VARCHAR(20) PRIMARY KEY NOT NULL,
-    password VARCHAR(20) NOT NULL,
+    password VARCHAR(100) NOT NULL,
     name VARCHAR(40) NOT NULL,
     resident_number CHAR(14) NOT NULL UNIQUE CHECK (resident_number REGEXP '^[0-9]{6}-[0-9]{7}$') ,
     phone CHAR(13) UNIQUE NOT NULL CHECK (phone REGEXP '^[0-9]{3}-[0-9]{4}-[0-9]{4}$'),
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) ,
     reg_date DATETIME  NOT NULL DEFAULT NOW(),
     update_date DATETIME,
     address VARCHAR(200),
     admin TINYINT DEFAULT(false)
 );
-
+ALTER TABLE users MODIFY COLUMN  email VARCHAR(100);
 ALTER TABLE users MODIFY COLUMN  resident_number CHAR(14) NOT NULL UNIQUE CHECK (resident_number REGEXP '^[0-9]{6}-[0-9]{7}$');
 CREATE TABLE book_info(
 user_id VARCHAR(20) NOT NULL,

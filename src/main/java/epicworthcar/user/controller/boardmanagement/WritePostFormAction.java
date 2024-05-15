@@ -54,15 +54,16 @@ public class WritePostFormAction extends HttpServlet {
 		String body = request.getParameter("body");
 		System.out.println(123);
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+		String id = user.getId();
 		BoardsRequestDto boardsDto = new BoardsRequestDto(title, body, id);
 		BoardsDao boardsDao = BoardsDao.getInstance();
-
+		
 		BoardsResponseDto boards = boardsDao.writePost(boardsDto);
 		if (boards == null)
-			response.sendRedirect("/writeForm");
+			response.sendRedirect("/writePostForm");
 		else
-			response.sendRedirect("/boardsListFormAction");
+			response.sendRedirect("/boardListFormAction");
 
 	}
 

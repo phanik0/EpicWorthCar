@@ -60,6 +60,7 @@ public class ReserveFormAction extends HttpServlet {
 	        if(startDay != null && endDay != null) {
 	        	car = carsDao.createReserve(carCode,user.getId(),startDay, endDay);
 	        }
+	    	response.sendRedirect("/mainFormAction");
 //	        
 //	        
 //	        request.setAttribute("car", car);

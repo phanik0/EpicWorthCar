@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -67,8 +68,8 @@ public class CarsDao {
 	public Timestamp convertStringToTimestamp(String str_date) {
 	    try {
 	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	        java.util.Date parsedDate = dateFormat.parse(str_date);
-	        Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
+	        Date parsedDate = dateFormat.parse(str_date);
+	        Timestamp timestamp = new Timestamp(parsedDate.getTime());
 
 	        return timestamp;
 	    } catch(ParseException e) {
@@ -99,7 +100,7 @@ public class CarsDao {
 
 			for (LocalDate date = LocalDate.parse(startDay); !date.isAfter(LocalDate.parse(endDay)); date = date
 					.plusDays(1)) {
-				bookedDatesNode.put(date.toString(), "user1"); // 예약 사용자 이름은 "user1"로 가정
+				bookedDatesNode.put(date.toString(), user_id); // 예약 사용자 이름은 "user1"로 가정
 			}
 
 			// 업데이트된 JSON 데이터를 데이터베이스에 저장
