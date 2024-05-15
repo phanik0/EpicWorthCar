@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	const daysElement = $('.days');
 	const monthYearElement = $('#monthYear');
 	const prevButton = $('#prevBtn');
@@ -8,6 +9,7 @@ $(document).ready(function() {
 
 	let currentDate = new Date();
 
+	
 	function generateCalendar(year, month) {
 		daysElement.empty();
 		monthYearElement.text(getMonthName(month) + ' ' + year);
@@ -94,4 +96,9 @@ function padZero(num) {
 		currentDate.setMonth(currentDate.getMonth() + 1);
 		generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
 	});
+	  $('form').on('submit', function(e) {
+       
+            e.preventDefault(); // form 제출 방지
+        
+        });
 });

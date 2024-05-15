@@ -61,7 +61,7 @@
 			 <input	type="hidden" name="endDay" id="endDayInput">
 			 	<input	type="hidden" name="carCode" id="carCode" value = "${car.code }">
 			 
-			  <input type="submit" value="예약하기">
+			  <input type="submit" id = "reserve" value="예약하기">
 		</form>
 	</div>
 	<script src="/resources/script/reserve/create-calendar.js"></script>

@@ -97,12 +97,12 @@ public class CarsDao {
 			ObjectNode bookedDatesNode = (ObjectNode)objectMapper.readTree(bookedDatesJson != null ? bookedDatesJson : "{}");
 					
 
-
+			if (startDay != null && !startDay.isEmpty() && endDay != null && !endDay.isEmpty()) {
 			for (LocalDate date = LocalDate.parse(startDay); !date.isAfter(LocalDate.parse(endDay)); date = date
 					.plusDays(1)) {
 				bookedDatesNode.put(date.toString(), user_id); // 예약 사용자 이름은 "user1"로 가정
 			}
-
+			}
 			// 업데이트된 JSON 데이터를 데이터베이스에 저장
 			String updatedBookedDatesJson = objectMapper.writeValueAsString(bookedDatesNode);
 			String sqlUpdate = "UPDATE cars SET booked_dates=? WHERE code=?";
