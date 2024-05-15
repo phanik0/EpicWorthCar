@@ -10,7 +10,6 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
-
   <servlet>
 		<servlet-name>MainFormAction</servlet-name>
 		<servlet-class>epicworthcar.user.controller.MainFormAction</servlet-class>
@@ -74,12 +73,58 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>ReserveFormAction</servlet-name>
-		<servlet-class>epicworthcar.user.controller.reserve.ReserveFormAction</servlet-class>
+		<servlet-name>BoardListFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.BoardListFormAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ReserveFormAction</servlet-name>
-		<url-pattern>/reserveFormAction</url-pattern>
+		<servlet-name>BoardListFormAction</servlet-name>
+		<url-pattern>/boardListFormAction</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.ListFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListFormAction</servlet-name>
+		<url-pattern>/listFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindPostAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.FindPostAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindPostAction</servlet-name>
+		<url-pattern>/findPostAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>WritePostFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.WritePostFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WritePostFormAction</servlet-name>
+		<url-pattern>/writePostFormAction</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>UpdatePostFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.UpdatePostFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePostFormAction</servlet-name>
+		<url-pattern>/updatePostFormAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeletePostFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.DeletePostFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeletePostFormAction</servlet-name>
+		<url-pattern>/deletePostFormAction</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -149,15 +194,20 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>reserveForm</servlet-name>
-		<jsp-file>/views/reserve/reserveForm.jsp</jsp-file>
+		<servlet-name>writePostForm</servlet-name>
+		<jsp-file>/views/board/writePostForm.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>reserveForm</servlet-name>
-		<url-pattern>/reserveForm</url-pattern>
+		<servlet-name>writePostForm</servlet-name>
+		<url-pattern>/writePostForm</url-pattern>
 	</servlet-mapping>
-	
-	
 
-
+	<servlet>
+		<servlet-name>UpdatePostForm</servlet-name>
+		<jsp-file>/views/board/updatePostForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePostForm</servlet-name>
+		<url-pattern>/updatePostForm</url-pattern>
+	</servlet-mapping>
 </web-app>
