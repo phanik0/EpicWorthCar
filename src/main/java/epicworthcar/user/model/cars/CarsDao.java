@@ -147,7 +147,7 @@ public class CarsDao {
 		String brand = "";
 		try {
 			conn = DBManager.getConnection();
-			String sql = "SELECT name FROM categories WHERE brand_code=?";
+			String sql = "SELECT name FROM categories WHERE code=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, brand_code);
 

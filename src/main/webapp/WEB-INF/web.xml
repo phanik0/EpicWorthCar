@@ -2,6 +2,8 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>EpicWorthCar</display-name>
   <welcome-file-list>
+  
+    <welcome-file>/mainFormAction</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -18,6 +20,7 @@
 		<servlet-name>MainFormAction</servlet-name>
 		<url-pattern>/mainFormAction</url-pattern>
 	</servlet-mapping>
+	
   <servlet>
 		<servlet-name>deleteUserAction</servlet-name>
 		<servlet-class>epicworthcar.user.controller.usermanagement.DeleteFormAction</servlet-class>
@@ -70,6 +73,24 @@
 	<servlet-mapping>
 		<servlet-name>FindUserAction</servlet-name>
 		<url-pattern>/FindUserAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindCarInfoAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.reservation.FindCarInfoAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindCarInfoAction</servlet-name>
+		<url-pattern>/findCarInfoAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ReserveFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.reservation.ReserveFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReserveFormAction</servlet-name>
+		<url-pattern>/reserveFormAction</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
