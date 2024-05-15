@@ -13,16 +13,7 @@
 		<div class="container">
 			<a href="/writePostForm"><button>글쓰기</button></a>
 
-			<div class="notice_listwrap">
-			<ul>
-					<c:forEach var="list" items="${noticeList}">
-						<li><p>${list.number}</p> <a
-							href="/findNoticeAction?number=${list.number}">${list.title}</a>
-							<p>${list.id}</p>
-							<p>${list.write_date}</p></li>
-					</c:forEach>
-				</ul>
-			</div>
+			<div class="notice_listwrap"></div>
 			<div class="user_listwrap">
 				<ul>
 					<c:forEach var="list" items="${boardList}">

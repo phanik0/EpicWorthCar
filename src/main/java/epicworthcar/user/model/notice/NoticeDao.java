@@ -1,4 +1,4 @@
-package epicworthcar.user.model.boards;
+package epicworthcar.user.model.notice;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,32 +9,29 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import epicworthcar.user.model.cars.CarsDao;
-import epicworthcar.user.model.cars.CarsResponseDto;
-import epicworthcar.user.model.users.UserRequestDto;
-import epicworthcar.user.model.users.UserResponseDto;
+
 import epicworthcar.util.DBManager;
 
-public class BoardsDao {
+public class NoticeDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
-	private BoardsDao() {
+	private NoticeDao() {
 
 	}
 
-	private static BoardsDao instance = new BoardsDao();
+	private static NoticeDao instance = new NoticeDao();
 
-	public static BoardsDao getInstance() {
+	public static NoticeDao getInstance() {
 		return instance;
 	}
 
-	public List<BoardsResponseDto> findBoardAll() {
-		List<BoardsResponseDto> list = new ArrayList<BoardsResponseDto>();
+	public List<NoticeResponseDto> findNoticeAll() {
+		List<NoticeResponseDto> list = new ArrayList<NoticeResponseDto>();
 		try {
 			conn = DBManager.getConnection();
-			String sql = "SELECT title, body, number, id, write_date, update_date FROM board";
+			String sql = "SELECT title, body, number, id, write_date, update_date FROM notice";
 			pstmt = conn.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -46,8 +43,8 @@ public class BoardsDao {
 				Timestamp write_date = rs.getTimestamp(5);
 				Timestamp update_date = rs.getTimestamp(6);
 
-				BoardsResponseDto boards = new BoardsResponseDto(title, body, number, number, write_date, update_date);
-				list.add(boards);
+				NoticeResponseDto notice = new NoticeResponseDto(title, body, number, number, write_date, update_date);
+				list.add(notice);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -56,13 +53,13 @@ public class BoardsDao {
 		return list;
 	}
 
-	public BoardsResponseDto findPostByNumber(String number) {
-		BoardsResponseDto post = null;
+	public NoticeResponseDto findNoticeByNumber(String number) {
+		NoticeResponseDto notice = null;
 
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "SELECT number, title , body,  id, write_date FROM board WHERE number=?";
+			String sql = "SELECT number, title , body,  id, write_date FROM notice WHERE number =?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, number);
@@ -76,23 +73,23 @@ public class BoardsDao {
 
 				String id = rs.getString(4);
 				Timestamp write_date = rs.getTimestamp(5);
-				post = new BoardsResponseDto(title, body, number, id, write_date);
+				notice = new NoticeResponseDto(title, body, number, id, write_date);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
-		return post;
+		return notice;
 	}
 
-	public BoardsResponseDto findPostByIdAndDate(String id, Timestamp write_date) {
-		BoardsResponseDto post = null;
+	public NoticeResponseDto findNoticeByIdAndDate(String id, Timestamp write_date) {
+		NoticeResponseDto notice = null;
 
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "SELECT  title , body,  number FROM board WHERE number=? AND write_date = ?";
+			String sql = "SELECT  title , body,  number FROM notice WHERE number=? AND write_date = ?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -105,34 +102,34 @@ public class BoardsDao {
 				String title = rs.getString(3);
 				String body = rs.getString(3);
 				String number = rs.getString(4);
-				post = new BoardsResponseDto(title, body, number, id, write_date);
-				return post;
+				notice = new NoticeResponseDto(title, body, number, id, write_date);
+				return notice;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
-		return post;
+		return notice;
 	}
 
-	public BoardsResponseDto writePost(BoardsRequestDto boardsDto) {
-		BoardsResponseDto post = null;
+	public NoticeResponseDto writeNotice(NoticeRequestDto noticeDto) {
+		NoticeResponseDto notice = null;
 
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "INSERT INTO board (title,body,id) VALUES(?, ?, ?)";
+			String sql = "INSERT INTO notice (title,body,id) VALUES(?, ?, ?)";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, boardsDto.getTitle());
-			pstmt.setString(3, boardsDto.getBody());
-			pstmt.setString(3, boardsDto.getId());
+			pstmt.setString(1, noticeDto.getTitle());
+			pstmt.setString(3, noticeDto.getBody());
+			pstmt.setString(3, noticeDto.getId());
 
 			pstmt.execute();
 
-			post = findPostByIdAndDate(boardsDto.getId(), new Timestamp(new Date().getTime()));
-			return post;
+			notice = findNoticeByIdAndDate(noticeDto.getId(), new Timestamp(new Date().getTime()));
+			return notice;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -141,35 +138,35 @@ public class BoardsDao {
 		return null;
 	}
 
-	public BoardsResponseDto updatePost(BoardsRequestDto boardsDto) {
-		BoardsResponseDto post = null;
+	public NoticeResponseDto updateNotice(NoticeRequestDto noticeDto) {
+		NoticeResponseDto notice = null;
 
 		try {
 			conn = DBManager.getConnection();
 
-			String sql = "UPDATE board SET title = ? ,body = ? ,update_date = ? WHERE number=?";
+			String sql = "UPDATE notice SET title = ? ,body = ? ,update_date = ? WHERE number=?";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, boardsDto.getTitle());
-			pstmt.setString(2, boardsDto.getBody());
+			pstmt.setString(1, noticeDto.getTitle());
+			pstmt.setString(2, noticeDto.getBody());
 			pstmt.setTimestamp(3, new Timestamp(new Date().getTime()));
-			pstmt.setString(4, boardsDto.getNumber());
+			pstmt.setString(4, noticeDto.getNumber());
 			
 			pstmt.execute();
 
-			return findPostByNumber(boardsDto.getNumber());
+			return findNoticeByNumber(noticeDto.getNumber());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt);
 		}
-		return post;
+		return notice;
 	}
-	public boolean deletePost(String number) {
+	public boolean deleteNotice(String number) {
 	
 		try {
 			conn = DBManager.getConnection();
-			String sql = "DELETE FROM board WHERE number=?";
+			String sql = "DELETE FROM notice WHERE number=?";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, number);

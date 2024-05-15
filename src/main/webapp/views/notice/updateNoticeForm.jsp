@@ -9,7 +9,7 @@
 <c:import url="/header" />
 <body>
 <div id="root">
-<form method = "POST" action = "/updatePostFormAction?number=${param.number}">
+<form method = "POST" action = "/updateNoticeFormAction?number=${param.number}">
 		<div>
 		<ul>
 		<li id = "title"><input type = "text" name = "title" value = "${param.title}"></li>

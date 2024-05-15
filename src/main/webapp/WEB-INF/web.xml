@@ -110,6 +110,15 @@
 		<url-pattern>/updatePostFormAction</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>DeletePostFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.DeletePostFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeletePostFormAction</servlet-name>
+		<url-pattern>/deletePostFormAction</url-pattern>
+	</servlet-mapping>
+	
 	
 	<!-- JSP files mapping -->
 	
@@ -174,5 +183,23 @@
 	<servlet-mapping>
 		<servlet-name>deleteUserForm</servlet-name>
 		<url-pattern>/deleteUserForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>writePostForm</servlet-name>
+		<jsp-file>/views/board/writePostForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writePostForm</servlet-name>
+		<url-pattern>/writePostForm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UpdatePostForm</servlet-name>
+		<jsp-file>/views/board/updatePostForm.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePostForm</servlet-name>
+		<url-pattern>/updatePostForm</url-pattern>
 	</servlet-mapping>
 </web-app>

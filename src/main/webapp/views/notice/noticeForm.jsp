@@ -11,13 +11,13 @@
 <div id="root">
 
 <%-- 		<c:if test="${sessionScope.user.id == post.id}"> --%>
-			<a href="/updatePostForm?title=${post.title }&body=${post.body }&number=${post.number } "><button>글 수정</button></a>
-			<a href="/deletePostFormAction?number=${post.number }"><button>글 삭제</button></a>
+			<a href="/updatePostForm?title=${notice.title }&body=${notice.body }&number=${post.number } "><button>글 수정</button></a>
+			<a href="/deletePostFormAction?number=${notice.number }"><button>글 삭제</button></a>
 <%-- 		</c:if> --%>
 		<div>
 		<ul>
-		<li>${post.title }</li>
-		<li>${post.body }</li>
+		<li>${notice.title }</li>
+		<li>${notice.body }</li>
 		</ul>
 		</div>
 
