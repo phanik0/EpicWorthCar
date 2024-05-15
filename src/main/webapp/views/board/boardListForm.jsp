@@ -11,6 +11,8 @@
 	<div id="root">
 		
 			<div class="container">
+		<a href="/writeForm"><button>글쓰기</button></a>
+
 				<div class="notice_listwrap"></div>
 				<div class="user_listwrap">
 					<ul>

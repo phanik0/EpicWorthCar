@@ -81,6 +81,7 @@
 		<servlet-name>ListFormAction</servlet-name>
 		<url-pattern>/listFormAction</url-pattern>
 	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>FindPostAction</servlet-name>
 		<servlet-class>epicworthcar.user.controller.boardmanagement.FindPostAction</servlet-class>
@@ -88,6 +89,25 @@
 	<servlet-mapping>
 		<servlet-name>FindPostAction</servlet-name>
 		<url-pattern>/findPostAction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>WritePostFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.WritePostFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WritePostFormAction</servlet-name>
+		<url-pattern>/writePostFormAction</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>UpdatePostFormAction</servlet-name>
+		<servlet-class>epicworthcar.user.controller.boardmanagement.UpdatePostFormAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePostFormAction</servlet-name>
+		<url-pattern>/updatePostFormAction</url-pattern>
 	</servlet-mapping>
 	
 	

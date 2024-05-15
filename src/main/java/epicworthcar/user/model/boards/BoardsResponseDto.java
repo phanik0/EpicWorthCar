@@ -9,6 +9,10 @@ public class BoardsResponseDto {
 	private String id;
 	private Timestamp write_date;
 	private Timestamp update_date;
+	
+	public BoardsResponseDto() {
+		
+	}
 	public BoardsResponseDto(String title, String body, String number, String id, Timestamp write_date,
 			Timestamp update_date) {
 		super();
@@ -26,6 +30,14 @@ public class BoardsResponseDto {
 		this.number = number;
 		this.id = id;
 		this.write_date = write_date;
+		
+	}
+	public BoardsResponseDto(String title, String body, String id, Timestamp update_date) {
+		super();
+		this.title = title;
+		this.body = body;
+		this.id = id;
+		this.update_date = update_date;
 		
 	}
 	public String getTitle() {
