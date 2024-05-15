@@ -105,7 +105,7 @@ public class JoinFormAction extends HttpServlet {
 				// 성공
 				System.out.println("user : " + user);
 
-				response.sendRedirect("/login");
+				response.sendRedirect("/mainFormAction");
 			}
 		} else {
 			response.sendRedirect("/join");
